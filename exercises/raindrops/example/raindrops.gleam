@@ -1,6 +1,6 @@
-import list
-import int
-import iodata
+import gleam/list
+import gleam/int
+import gleam/iodata
 
 fn sound(n, divisor, sound) {
   case n % divisor {

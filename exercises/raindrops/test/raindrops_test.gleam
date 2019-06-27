@@ -1,5 +1,5 @@
 import raindrops
-import expect
+import gleam/expect
 
 // Common test data version: 1.1.0 99de15d
 

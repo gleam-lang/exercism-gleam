@@ -1,4 +1,4 @@
-import list
+import gleam/list
 
 fn range(n) {
   case n > 0 {

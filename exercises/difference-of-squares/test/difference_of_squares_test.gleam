@@ -1,5 +1,5 @@
 import squares
-import expect
+import gleam/expect
 
 pub fn test_square_of_sum_1_test() {
   squares:square_of_sum(1)

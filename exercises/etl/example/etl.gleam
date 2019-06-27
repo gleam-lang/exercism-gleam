@@ -1,11 +1,11 @@
-import map_dict
-import list
-import str
+import gleam/map_dict
+import gleam/list
+import gleam/string
 
 pub fn insert_for_score(tup, mapping) {
   let {score, letters} = tup
   let insert = fn(letter, m) {
-    map_dict:put(m, str:lowercase(letter), score)
+    map_dict:put(m, string:lowercase(letter), score)
   }
   list:fold(letters, mapping, insert)
 }

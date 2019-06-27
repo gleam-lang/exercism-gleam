@@ -1,6 +1,6 @@
 import rna
 import dna
-import expect
+import gleam/expect
 
 pub fn guanine_to_cytosine_test() {
   [dna:Guanine]

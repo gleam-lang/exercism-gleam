@@ -5,18 +5,6 @@ BASE=$(pwd)
 for DIR in exercises/*/
 do
   echo $DIR
-  cd "$DIR"
-
-  cp -rv example/*.gleam src
-  rebar3 eunit
-
-  # Clean up example files
-  cd example
-  for FILE in *
-  do
-    rm -v "../src/$FILE"
-  done
-
-  cd "$BASE"
+  bin/test $DIR
   echo
 done

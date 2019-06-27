@@ -1,5 +1,5 @@
 import hello_world
-import expect
+import gleam/expect
 
 pub fn hello_world_test() {
   hello_world:hello()

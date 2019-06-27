@@ -1,5 +1,5 @@
 import rna
-import list
+import gleam/list
 
 pub enum Nucleotide =
   | Adenine

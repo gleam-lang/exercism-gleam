@@ -1,5 +1,5 @@
 import hamming
-import expect
+import gleam/expect
 
 pub fn empty_strands_test() {
   hamming:distance("", "")

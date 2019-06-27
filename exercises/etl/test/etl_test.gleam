@@ -1,6 +1,6 @@
 import etl
-import map_dict
-import expect
+import gleam/map_dict
+import gleam/expect
 
 pub fn test_a_single_letter_test() {
   [

@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Usage:
+# bin/test exercises/hello-world
+
+[ ! -d $1 ] && echo "Directory $1 does not exist."
+cd $1
+
+cp -rv example/*.gleam src
+rebar3 eunit
+
+# Clean up example files
+cd example
+for FILE in *
+do
+  rm -v "../src/$FILE"
+done
