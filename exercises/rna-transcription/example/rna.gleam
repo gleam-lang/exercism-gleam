@@ -1,5 +1,6 @@
-pub enum Nucleotide =
-  | Adenine
-  | Cytosine
-  | Guanine
-  | Uracil
+pub type Nucleotide {
+  Adenine
+  Cytosine
+  Guanine
+  Uracil
+}

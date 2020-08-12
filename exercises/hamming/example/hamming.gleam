@@ -1,23 +1,26 @@
 import gleam/string
-import gleam/iodata
+import gleam/bit_builder
 import gleam/bool
 
-external fn graphemes(String) -> List(iodata:Iodata)
+external fn graphemes(String) -> List(bit_builder.BitBuilder)
   = "string" "to_graphemes"
 
-pub enum Uneven =
-  | Uneven
+pub type Uneven {
+  Uneven
+}
 
 fn count(xs, ys, current) {
-  case {xs, ys} {
-  | {[], []} ->
+  case tuple(xs, ys) {
+    tuple([], []) ->
       Ok(current)
 
-  | {[x | xs], [y | ys]} ->
-      let diff = bool:negate(x == y) |> bool:to_int
-      count(xs, ys, current + diff)
+    tuple([x, ..xs], [y, ..ys]) ->
+      { 
+        let diff = bool.negate(x == y) |> bool.to_int 
+        count(xs, ys, current + diff)
+      }
 
-  | _ ->
+    _ ->
       Error(Uneven)
   }
 }
