@@ -2,8 +2,8 @@ import gleam/string
 import gleam/bit_builder
 import gleam/bool
 
-external fn graphemes(String) -> List(bit_builder.BitBuilder)
-  = "string" "to_graphemes"
+external fn graphemes(String) -> List(bit_builder.BitBuilder) =
+  "string" "to_graphemes"
 
 pub type Uneven {
   Uneven
@@ -11,17 +11,15 @@ pub type Uneven {
 
 fn count(xs, ys, current) {
   case tuple(xs, ys) {
-    tuple([], []) ->
-      Ok(current)
+    tuple([], []) -> Ok(current)
 
-    tuple([x, ..xs], [y, ..ys]) ->
-      { 
-        let diff = bool.negate(x == y) |> bool.to_int 
-        count(xs, ys, current + diff)
-      }
+    tuple([x, ..xs], [y, ..ys]) -> {
+      let diff = bool.negate(x == y)
+        |> bool.to_int
+      count(xs, ys, current + diff)
+    }
 
-    _ ->
-      Error(Uneven)
+    _ -> Error(Uneven)
   }
 }
 

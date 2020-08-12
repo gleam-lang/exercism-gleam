@@ -2,7 +2,7 @@ import gleam/list
 
 fn range(n) {
   case n > 0 {
-    True -> [n,  ..range(n - 1)]
+    True -> [n, ..range(n - 1)]
     False -> []
   }
 }
@@ -25,7 +25,7 @@ pub fn square_of_sum(n) {
 pub fn sum_of_squares(n) {
   n
   |> range
-  |> list.map(_, square)
+  |> list.map(square)
   |> sum
 }
 
