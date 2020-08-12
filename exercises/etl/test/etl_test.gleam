@@ -1,86 +1,86 @@
 import etl
-import gleam/map_dict
-import gleam/expect
+import gleam/map
+import gleam/should
 
 pub fn test_a_single_letter_test() {
   [
-    {1, ["A"]},
+    tuple(1, ["A"]),
   ]
-  |> map_dict:from_list
-  |> etl:transform
-  |> expect:equal(_, map_dict:from_list([
-      {"a", 1},
+  |> map.from_list
+  |> etl.transform
+  |> should.equal(_, map.from_list([
+      tuple("a", 1),
     ]))
 }
 
 pub fn test_single_score_with_multiple_letters_test() {
   [
-    {1, ["A", "E", "I", "O", "U"]},
+    tuple(1, ["A", "E", "I", "O", "U"]),
   ]
-  |> map_dict:from_list
-  |> etl:transform
-  |> expect:equal(_, map_dict:from_list([
-      {"a", 1},
-      {"e", 1},
-      {"i", 1},
-      {"o", 1},
-      {"u", 1},
+  |> map.from_list
+  |> etl.transform
+  |> should.equal(_, map.from_list([
+      tuple("a", 1),
+      tuple("e", 1),
+      tuple("i", 1),
+      tuple("o", 1),
+      tuple("u", 1),
     ]))
 }
 
 pub fn test_multiple_scores_with_multiple_letters_test() {
   [
-    {1, ["A", "E"]},
-    {2, ["D", "G"]},
+    tuple(1, ["A", "E"]),
+    tuple(2, ["D", "G"]),
   ]
-  |> map_dict:from_list
-  |> etl:transform
-  |> expect:equal(_, map_dict:from_list([
-      {"a", 1},
-      {"d", 2},
-      {"e", 1},
-      {"g", 2},
+  |> map.from_list
+  |> etl.transform
+  |> should.equal(_, map.from_list([
+      tuple("a", 1),
+      tuple("d", 2),
+      tuple("e", 1),
+      tuple("g", 2),
     ]))
 }
 
 pub fn test_multiple_scores_with_differing_numbers_of_letters_test() {
   [
-    {1, ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"]},
-    {2, ["D", "G"]},
-    {3, ["B", "C", "M", "P"]},
-    {4, ["F", "H", "V", "W", "Y"]},
-    {5, ["K"]},
-    {8, ["J", "X"]},
-    {10, ["Q", "Z"]},
+    tuple(1, ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"]),
+    tuple(2, ["D", "G"]),
+    tuple(3, ["B", "C", "M", "P"]),
+    tuple(4, ["F", "H", "V", "W", "Y"]),
+    tuple(5, ["K"]),
+    tuple(8, ["J", "X"]),
+    tuple(10, ["Q", "Z"]),
   ]
-  |> map_dict:from_list
-  |> etl:transform
-  |> expect:equal(_, map_dict:from_list([
-      {"a", 1},
-      {"b", 3},
-      {"c", 3},
-      {"d", 2},
-      {"e", 1},
-      {"f", 4},
-      {"g", 2},
-      {"h", 4},
-      {"i", 1},
-      {"j", 8},
-      {"k", 5},
-      {"l", 1},
-      {"m", 3},
-      {"n", 1},
-      {"o", 1},
-      {"p", 3},
-      {"q", 10},
-      {"r", 1},
-      {"s", 1},
-      {"t", 1},
-      {"u", 1},
-      {"v", 4},
-      {"w", 4},
-      {"x", 8},
-      {"y", 4},
-      {"z", 10},
+  |> map.from_list
+  |> etl.transform
+  |> should.equal(_, map.from_list([
+      tuple("a", 1),
+      tuple("b", 3),
+      tuple("c", 3),
+      tuple("d", 2),
+      tuple("e", 1),
+      tuple("f", 4),
+      tuple("g", 2),
+      tuple("h", 4),
+      tuple("i", 1),
+      tuple("j", 8),
+      tuple("k", 5),
+      tuple("l", 1),
+      tuple("m", 3),
+      tuple("n", 1),
+      tuple("o", 1),
+      tuple("p", 3),
+      tuple("q", 10),
+      tuple("r", 1),
+      tuple("s", 1),
+      tuple("t", 1),
+      tuple("u", 1),
+      tuple("v", 4),
+      tuple("w", 4),
+      tuple("x", 8),
+      tuple("y", 4),
+      tuple("z", 10),
     ]))
 }

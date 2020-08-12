@@ -1,63 +1,63 @@
 import rna
 import dna
-import gleam/expect
+import gleam/should
 
 pub fn guanine_to_cytosine_test() {
-  [dna:Guanine]
-  |> dna:to_rna
-  |> expect:equal(_, [rna:Cytosine])
+  [dna.Guanine]
+  |> dna.to_rna
+  |> should.equal(_, [rna.Cytosine])
 }
 
 pub fn cytosine_to_guanine_test() {
-  [dna:Cytosine]
-  |> dna:to_rna
-  |> expect:equal(_, [rna:Guanine])
+  [dna.Cytosine]
+  |> dna.to_rna
+  |> should.equal(_, [rna.Guanine])
 }
 
 pub fn thymidine_to_adenine_test() {
-  [dna:Thymine]
-  |> dna:to_rna
-  |> expect:equal(_, [rna:Adenine])
+  [dna.Thymine]
+  |> dna.to_rna
+  |> should.equal(_, [rna.Adenine])
 }
 
 pub fn adenine_to_uracil_test() {
-  [dna:Adenine]
-  |> dna:to_rna
-  |> expect:equal(_, [rna:Uracil])
+  [dna.Adenine]
+  |> dna.to_rna
+  |> should.equal(_, [rna.Uracil])
 }
 
 pub fn strand_test() {
   let dna_strand = [
-    dna:Adenine,
-    dna:Cytosine,
-    dna:Guanine,
-    dna:Thymine,
-    dna:Guanine,
-    dna:Guanine,
-    dna:Thymine,
-    dna:Cytosine,
-    dna:Thymine,
-    dna:Thymine,
-    dna:Adenine,
-    dna:Adenine,
+    dna.Adenine,
+    dna.Cytosine,
+    dna.Guanine,
+    dna.Thymine,
+    dna.Guanine,
+    dna.Guanine,
+    dna.Thymine,
+    dna.Cytosine,
+    dna.Thymine,
+    dna.Thymine,
+    dna.Adenine,
+    dna.Adenine,
   ]
 
   let rna_strand = [
-    rna:Uracil,
-    rna:Guanine,
-    rna:Cytosine,
-    rna:Adenine,
-    rna:Cytosine,
-    rna:Cytosine,
-    rna:Adenine,
-    rna:Guanine,
-    rna:Adenine,
-    rna:Adenine,
-    rna:Uracil,
-    rna:Uracil,
+    rna.Uracil,
+    rna.Guanine,
+    rna.Cytosine,
+    rna.Adenine,
+    rna.Cytosine,
+    rna.Cytosine,
+    rna.Adenine,
+    rna.Guanine,
+    rna.Adenine,
+    rna.Adenine,
+    rna.Uracil,
+    rna.Uracil,
   ]
 
   dna_strand
-  |> dna:to_rna
-  |> expect:equal(_, rna_strand)
+  |> dna.to_rna
+  |> should.equal(_, rna_strand)
 }
