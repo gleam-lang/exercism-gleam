@@ -1,8 +1,8 @@
 import gleam/string
-import gleam/bit_builder
+import gleam/string_builder
 import gleam/bool
 
-external fn graphemes(String) -> List(bit_builder.BitBuilder) =
+external fn graphemes(String) -> List(string_builder.StringBuilder) =
   "string" "to_graphemes"
 
 pub type Uneven {
